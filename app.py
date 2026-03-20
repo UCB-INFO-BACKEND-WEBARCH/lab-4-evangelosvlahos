@@ -66,7 +66,9 @@ class CategoryModel(db.Model):
         return {
             "id":         self.id,
             "name":       self.name,
-            "todo_count": len(self.todos),
+            # In the back-end, the todo_count allows us to easily access the number of todos associated with this category without needing to perform additional queries on the client side. 
+            # This is especially useful for displaying category summaries or counts in the UI.
+            "todo_count": len(self.todos)
         }
     
 # ── Routes ────────────────────────────────────────────────────────────────────
